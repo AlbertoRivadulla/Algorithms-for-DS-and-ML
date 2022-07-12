@@ -1,0 +1,17 @@
+[
+{
+  "directory": "/home/albertors/Datos/Data_science_and_machine_learning/Projects/001_Algorithms_in_data_science/DSAlgorithms/build",
+  "command": "/usr/bin/c++ -DDSAlgorithms_EXPORTS -I/home/albertors/Datos/Data_science_and_machine_learning/Projects/001_Algorithms_in_data_science/DSAlgorithms/src -O3 -DNDEBUG -fPIC -o CMakeFiles/DSAlgorithms.dir/src/linalg.cpp.o -c /home/albertors/Datos/Data_science_and_machine_learning/Projects/001_Algorithms_in_data_science/DSAlgorithms/src/linalg.cpp",
+  "file": "/home/albertors/Datos/Data_science_and_machine_learning/Projects/001_Algorithms_in_data_science/DSAlgorithms/src/linalg.cpp"
+},
+{
+  "directory": "/home/albertors/Datos/Data_science_and_machine_learning/Projects/001_Algorithms_in_data_science/DSAlgorithms/build",
+  "command": "/usr/bin/c++ -DDSAlgorithms_EXPORTS -I/home/albertors/Datos/Data_science_and_machine_learning/Projects/001_Algorithms_in_data_science/DSAlgorithms/src -O3 -DNDEBUG -fPIC -o CMakeFiles/DSAlgorithms.dir/src/clustering.cpp.o -c /home/albertors/Datos/Data_science_and_machine_learning/Projects/001_Algorithms_in_data_science/DSAlgorithms/src/clustering.cpp",
+  "file": "/home/albertors/Datos/Data_science_and_machine_learning/Projects/001_Algorithms_in_data_science/DSAlgorithms/src/clustering.cpp"
+},
+{
+  "directory": "/home/albertors/Datos/Data_science_and_machine_learning/Projects/001_Algorithms_in_data_science/DSAlgorithms/build",
+  "command": "/usr/bin/c++ -DDSAlgorithms_EXPORTS -I/home/albertors/Datos/Data_science_and_machine_learning/Projects/001_Algorithms_in_data_science/DSAlgorithms/src -O3 -DNDEBUG -fPIC -o CMakeFiles/DSAlgorithms.dir/src/dimensionalReduction.cpp.o -c /home/albertors/Datos/Data_science_and_machine_learning/Projects/001_Algorithms_in_data_science/DSAlgorithms/src/dimensionalReduction.cpp",
+  "file": "/home/albertors/Datos/Data_science_and_machine_learning/Projects/001_Algorithms_in_data_science/DSAlgorithms/src/dimensionalReduction.cpp"
+}
+]

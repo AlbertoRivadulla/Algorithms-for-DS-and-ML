@@ -1,0 +1,3 @@
+/home/albertors/Datos/Data_science_and_machine_learning/Projects/001_Algorithms_in_data_science/DSAlgorithms/test/build/CMakeFiles/main.dir
+/home/albertors/Datos/Data_science_and_machine_learning/Projects/001_Algorithms_in_data_science/DSAlgorithms/test/build/CMakeFiles/edit_cache.dir
+/home/albertors/Datos/Data_science_and_machine_learning/Projects/001_Algorithms_in_data_science/DSAlgorithms/test/build/CMakeFiles/rebuild_cache.dir
