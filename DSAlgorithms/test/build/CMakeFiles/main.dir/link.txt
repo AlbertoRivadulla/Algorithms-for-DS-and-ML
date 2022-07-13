@@ -1,1 +1,1 @@
-/usr/bin/c++ CMakeFiles/main.dir/main.cpp.o -o main  -Wl,-rpath,/home/albertors/Datos/Data_science_and_machine_learning/Projects/001_Algorithms_in_data_science/DSAlgorithms/test/../build ../../build/libDSAlgorithms.so 
+/usr/bin/c++ CMakeFiles/main.dir/main.cpp.o CMakeFiles/main.dir/src/auxFunctions.cpp.o -o main  -Wl,-rpath,/home/albertors/Datos/Data_science_and_machine_learning/Projects/001_Algorithms_in_data_science/DSAlgorithms/test/../build ../../build/libDSAlgorithms.so 

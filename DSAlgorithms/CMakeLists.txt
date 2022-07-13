@@ -45,7 +45,7 @@ set_target_properties( DSAlgorithms PROPERTIES VERSION ${PROJECT_VERSION} )
 # Declare a public API header of the library, 
 # It can be more than one header, separating them with ;
 set_target_properties( DSAlgorithms PROPERTIES PUBLIC_HEADER 
-    "${PROJECT_SOURCE_DIR}/src/DSAlgorithms.h;${PROJECT_SOURCE_DIR}/src/clustering.h"
+    "${PROJECT_SOURCE_DIR}/src/DSAlgorithms.h;"
     )
 
 # Add the include directories for the target

@@ -153,6 +153,30 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+src/auxFunctions.o: src/auxFunctions.cpp.o
+.PHONY : src/auxFunctions.o
+
+# target to build an object file
+src/auxFunctions.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/auxFunctions.cpp.o
+.PHONY : src/auxFunctions.cpp.o
+
+src/auxFunctions.i: src/auxFunctions.cpp.i
+.PHONY : src/auxFunctions.i
+
+# target to preprocess a source file
+src/auxFunctions.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/auxFunctions.cpp.i
+.PHONY : src/auxFunctions.cpp.i
+
+src/auxFunctions.s: src/auxFunctions.cpp.s
+.PHONY : src/auxFunctions.s
+
+# target to generate assembly for a file
+src/auxFunctions.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/auxFunctions.cpp.s
+.PHONY : src/auxFunctions.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -165,6 +189,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... src/auxFunctions.o"
+	@echo "... src/auxFunctions.i"
+	@echo "... src/auxFunctions.s"
 .PHONY : help
 
 

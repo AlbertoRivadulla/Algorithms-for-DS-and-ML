@@ -187,7 +187,48 @@ CMakeFiles/DSAlgorithms.dir/src/clustering.cpp.o: ../src/clustering.cpp \
   /usr/include/c++/12.1.0/bits/ostream.tcc \
   /usr/include/c++/12.1.0/istream \
   /usr/include/c++/12.1.0/bits/istream.tcc \
-  ../src/linalg.h
+  ../src/linalg.h \
+  /usr/include/c++/12.1.0/vector \
+  /usr/include/c++/12.1.0/bits/stl_uninitialized.h \
+  /usr/include/c++/12.1.0/bits/stl_vector.h \
+  /usr/include/c++/12.1.0/bits/stl_bvector.h \
+  /usr/include/c++/12.1.0/bits/vector.tcc \
+  /usr/include/c++/12.1.0/random \
+  /usr/include/c++/12.1.0/cmath \
+  /usr/include/math.h \
+  /usr/include/bits/math-vector.h \
+  /usr/include/bits/libm-simd-decl-stubs.h \
+  /usr/include/bits/flt-eval-method.h \
+  /usr/include/bits/fp-logb.h \
+  /usr/include/bits/fp-fast.h \
+  /usr/include/bits/mathcalls-helper-functions.h \
+  /usr/include/bits/mathcalls.h \
+  /usr/include/bits/mathcalls-narrow.h \
+  /usr/include/bits/iscanonical.h \
+  /usr/include/c++/12.1.0/bits/specfun.h \
+  /usr/include/c++/12.1.0/limits \
+  /usr/include/c++/12.1.0/tr1/gamma.tcc \
+  /usr/include/c++/12.1.0/tr1/special_function_util.h \
+  /usr/include/c++/12.1.0/tr1/bessel_function.tcc \
+  /usr/include/c++/12.1.0/tr1/beta_function.tcc \
+  /usr/include/c++/12.1.0/tr1/ell_integral.tcc \
+  /usr/include/c++/12.1.0/tr1/exp_integral.tcc \
+  /usr/include/c++/12.1.0/tr1/hypergeometric.tcc \
+  /usr/include/c++/12.1.0/tr1/legendre_function.tcc \
+  /usr/include/c++/12.1.0/tr1/modified_bessel_func.tcc \
+  /usr/include/c++/12.1.0/tr1/poly_hermite.tcc \
+  /usr/include/c++/12.1.0/tr1/poly_laguerre.tcc \
+  /usr/include/c++/12.1.0/tr1/riemann_zeta.tcc \
+  /usr/include/c++/12.1.0/bits/random.h \
+  /usr/include/c++/12.1.0/bits/uniform_int_dist.h \
+  /usr/include/c++/12.1.0/x86_64-pc-linux-gnu/bits/opt_random.h \
+  /usr/include/c++/12.1.0/bits/random.tcc \
+  /usr/include/c++/12.1.0/numeric \
+  /usr/include/c++/12.1.0/bits/stl_numeric.h \
+  /usr/include/c++/12.1.0/bit \
+  /usr/include/c++/12.1.0/pstl/glue_numeric_defs.h \
+  /usr/include/c++/12.1.0/pstl/execution_defs.h \
+  /usr/include/c++/12.1.0/ctime
 
 CMakeFiles/DSAlgorithms.dir/src/dimensionalReduction.cpp.o: ../src/dimensionalReduction.cpp \
   /usr/include/stdc-predef.h \
@@ -375,7 +416,48 @@ CMakeFiles/DSAlgorithms.dir/src/dimensionalReduction.cpp.o: ../src/dimensionalRe
   /usr/include/c++/12.1.0/bits/ostream.tcc \
   /usr/include/c++/12.1.0/istream \
   /usr/include/c++/12.1.0/bits/istream.tcc \
-  ../src/linalg.h
+  ../src/linalg.h \
+  /usr/include/c++/12.1.0/vector \
+  /usr/include/c++/12.1.0/bits/stl_uninitialized.h \
+  /usr/include/c++/12.1.0/bits/stl_vector.h \
+  /usr/include/c++/12.1.0/bits/stl_bvector.h \
+  /usr/include/c++/12.1.0/bits/vector.tcc \
+  /usr/include/c++/12.1.0/random \
+  /usr/include/c++/12.1.0/cmath \
+  /usr/include/math.h \
+  /usr/include/bits/math-vector.h \
+  /usr/include/bits/libm-simd-decl-stubs.h \
+  /usr/include/bits/flt-eval-method.h \
+  /usr/include/bits/fp-logb.h \
+  /usr/include/bits/fp-fast.h \
+  /usr/include/bits/mathcalls-helper-functions.h \
+  /usr/include/bits/mathcalls.h \
+  /usr/include/bits/mathcalls-narrow.h \
+  /usr/include/bits/iscanonical.h \
+  /usr/include/c++/12.1.0/bits/specfun.h \
+  /usr/include/c++/12.1.0/limits \
+  /usr/include/c++/12.1.0/tr1/gamma.tcc \
+  /usr/include/c++/12.1.0/tr1/special_function_util.h \
+  /usr/include/c++/12.1.0/tr1/bessel_function.tcc \
+  /usr/include/c++/12.1.0/tr1/beta_function.tcc \
+  /usr/include/c++/12.1.0/tr1/ell_integral.tcc \
+  /usr/include/c++/12.1.0/tr1/exp_integral.tcc \
+  /usr/include/c++/12.1.0/tr1/hypergeometric.tcc \
+  /usr/include/c++/12.1.0/tr1/legendre_function.tcc \
+  /usr/include/c++/12.1.0/tr1/modified_bessel_func.tcc \
+  /usr/include/c++/12.1.0/tr1/poly_hermite.tcc \
+  /usr/include/c++/12.1.0/tr1/poly_laguerre.tcc \
+  /usr/include/c++/12.1.0/tr1/riemann_zeta.tcc \
+  /usr/include/c++/12.1.0/bits/random.h \
+  /usr/include/c++/12.1.0/bits/uniform_int_dist.h \
+  /usr/include/c++/12.1.0/x86_64-pc-linux-gnu/bits/opt_random.h \
+  /usr/include/c++/12.1.0/bits/random.tcc \
+  /usr/include/c++/12.1.0/numeric \
+  /usr/include/c++/12.1.0/bits/stl_numeric.h \
+  /usr/include/c++/12.1.0/bit \
+  /usr/include/c++/12.1.0/pstl/glue_numeric_defs.h \
+  /usr/include/c++/12.1.0/pstl/execution_defs.h \
+  /usr/include/c++/12.1.0/ctime
 
 CMakeFiles/DSAlgorithms.dir/src/linalg.cpp.o: ../src/linalg.cpp \
   /usr/include/stdc-predef.h \
@@ -562,12 +644,85 @@ CMakeFiles/DSAlgorithms.dir/src/linalg.cpp.o: ../src/linalg.cpp \
   /usr/include/c++/12.1.0/bits/basic_ios.tcc \
   /usr/include/c++/12.1.0/bits/ostream.tcc \
   /usr/include/c++/12.1.0/istream \
-  /usr/include/c++/12.1.0/bits/istream.tcc
+  /usr/include/c++/12.1.0/bits/istream.tcc \
+  /usr/include/c++/12.1.0/vector \
+  /usr/include/c++/12.1.0/bits/stl_uninitialized.h \
+  /usr/include/c++/12.1.0/bits/stl_vector.h \
+  /usr/include/c++/12.1.0/bits/stl_bvector.h \
+  /usr/include/c++/12.1.0/bits/vector.tcc \
+  /usr/include/c++/12.1.0/random \
+  /usr/include/c++/12.1.0/cmath \
+  /usr/include/math.h \
+  /usr/include/bits/math-vector.h \
+  /usr/include/bits/libm-simd-decl-stubs.h \
+  /usr/include/bits/flt-eval-method.h \
+  /usr/include/bits/fp-logb.h \
+  /usr/include/bits/fp-fast.h \
+  /usr/include/bits/mathcalls-helper-functions.h \
+  /usr/include/bits/mathcalls.h \
+  /usr/include/bits/mathcalls-narrow.h \
+  /usr/include/bits/iscanonical.h \
+  /usr/include/c++/12.1.0/bits/specfun.h \
+  /usr/include/c++/12.1.0/limits \
+  /usr/include/c++/12.1.0/tr1/gamma.tcc \
+  /usr/include/c++/12.1.0/tr1/special_function_util.h \
+  /usr/include/c++/12.1.0/tr1/bessel_function.tcc \
+  /usr/include/c++/12.1.0/tr1/beta_function.tcc \
+  /usr/include/c++/12.1.0/tr1/ell_integral.tcc \
+  /usr/include/c++/12.1.0/tr1/exp_integral.tcc \
+  /usr/include/c++/12.1.0/tr1/hypergeometric.tcc \
+  /usr/include/c++/12.1.0/tr1/legendre_function.tcc \
+  /usr/include/c++/12.1.0/tr1/modified_bessel_func.tcc \
+  /usr/include/c++/12.1.0/tr1/poly_hermite.tcc \
+  /usr/include/c++/12.1.0/tr1/poly_laguerre.tcc \
+  /usr/include/c++/12.1.0/tr1/riemann_zeta.tcc \
+  /usr/include/c++/12.1.0/bits/random.h \
+  /usr/include/c++/12.1.0/bits/uniform_int_dist.h \
+  /usr/include/c++/12.1.0/x86_64-pc-linux-gnu/bits/opt_random.h \
+  /usr/include/c++/12.1.0/bits/random.tcc \
+  /usr/include/c++/12.1.0/numeric \
+  /usr/include/c++/12.1.0/bits/stl_numeric.h \
+  /usr/include/c++/12.1.0/bit \
+  /usr/include/c++/12.1.0/pstl/glue_numeric_defs.h \
+  /usr/include/c++/12.1.0/pstl/execution_defs.h \
+  /usr/include/c++/12.1.0/ctime
 
 
 ../src/linalg.cpp:
 
 ../src/dimensionalReduction.cpp:
+
+/usr/include/c++/12.1.0/pstl/execution_defs.h:
+
+/usr/include/c++/12.1.0/pstl/glue_numeric_defs.h:
+
+/usr/include/c++/12.1.0/bits/stl_numeric.h:
+
+/usr/include/c++/12.1.0/tr1/modified_bessel_func.tcc:
+
+/usr/include/c++/12.1.0/tr1/legendre_function.tcc:
+
+/usr/include/c++/12.1.0/tr1/hypergeometric.tcc:
+
+/usr/include/c++/12.1.0/tr1/exp_integral.tcc:
+
+/usr/include/c++/12.1.0/bits/random.h:
+
+/usr/include/c++/12.1.0/limits:
+
+/usr/include/bits/iscanonical.h:
+
+/usr/include/bits/mathcalls-helper-functions.h:
+
+/usr/include/bits/fp-fast.h:
+
+/usr/include/bits/math-vector.h:
+
+/usr/include/math.h:
+
+/usr/include/c++/12.1.0/bits/stl_vector.h:
+
+/usr/include/c++/12.1.0/vector:
 
 ../src/linalg.h:
 
@@ -585,11 +740,17 @@ CMakeFiles/DSAlgorithms.dir/src/linalg.cpp.o: ../src/linalg.cpp \
 
 /usr/include/c++/12.1.0/x86_64-pc-linux-gnu/bits/error_constants.h:
 
+/usr/include/c++/12.1.0/tr1/poly_laguerre.tcc:
+
 /usr/include/c++/12.1.0/bits/locale_classes.tcc:
 
 /usr/include/bits/types/error_t.h:
 
+/usr/include/c++/12.1.0/bits/stl_uninitialized.h:
+
 /usr/include/asm-generic/errno-base.h:
+
+/usr/include/bits/fp-logb.h:
 
 /usr/include/c++/12.1.0/bits/basic_string.tcc:
 
@@ -609,9 +770,13 @@ CMakeFiles/DSAlgorithms.dir/src/linalg.cpp.o: ../src/linalg.cpp \
 
 /usr/include/bits/types/__fpos64_t.h:
 
+/usr/include/c++/12.1.0/bit:
+
 /usr/include/stdio.h:
 
 /usr/include/c++/12.1.0/cstdio:
+
+/usr/include/bits/mathcalls-narrow.h:
 
 /usr/include/c++/12.1.0/bits/std_abs.h:
 
@@ -622,6 +787,8 @@ CMakeFiles/DSAlgorithms.dir/src/linalg.cpp.o: ../src/linalg.cpp \
 /usr/include/bits/types/sigset_t.h:
 
 /usr/include/bits/select.h:
+
+/usr/include/c++/12.1.0/tr1/bessel_function.tcc:
 
 /usr/include/sys/select.h:
 
@@ -641,6 +808,8 @@ CMakeFiles/DSAlgorithms.dir/src/linalg.cpp.o: ../src/linalg.cpp \
 
 /usr/include/c++/12.1.0/string_view:
 
+/usr/include/c++/12.1.0/tr1/gamma.tcc:
+
 /usr/include/c++/12.1.0/bits/stl_construct.h:
 
 /usr/include/bits/stdint-intn.h:
@@ -650,6 +819,8 @@ CMakeFiles/DSAlgorithms.dir/src/linalg.cpp.o: ../src/linalg.cpp \
 /usr/include/bits/time64.h:
 
 /usr/include/bits/typesizes.h:
+
+/usr/include/c++/12.1.0/numeric:
 
 /usr/include/bits/cpu-set.h:
 
@@ -673,6 +844,8 @@ CMakeFiles/DSAlgorithms.dir/src/linalg.cpp.o: ../src/linalg.cpp \
 
 /usr/include/c++/12.1.0/bits/move.h:
 
+/usr/include/c++/12.1.0/x86_64-pc-linux-gnu/bits/opt_random.h:
+
 /usr/include/c++/12.1.0/bits/locale_classes.h:
 
 /usr/include/c++/12.1.0/typeinfo:
@@ -694,6 +867,8 @@ CMakeFiles/DSAlgorithms.dir/src/linalg.cpp.o: ../src/linalg.cpp \
 /usr/include/bits/sched.h:
 
 /usr/include/bits/types/__locale_t.h:
+
+/usr/include/c++/12.1.0/tr1/ell_integral.tcc:
 
 /usr/include/bits/types/__FILE.h:
 
@@ -747,6 +922,8 @@ CMakeFiles/DSAlgorithms.dir/src/linalg.cpp.o: ../src/linalg.cpp \
 
 /usr/include/bits/timesize.h:
 
+/usr/include/c++/12.1.0/bits/specfun.h:
+
 /usr/include/c++/12.1.0/pstl/pstl_config.h:
 
 /usr/include/c++/12.1.0/bits/stringfwd.h:
@@ -755,11 +932,17 @@ CMakeFiles/DSAlgorithms.dir/src/linalg.cpp.o: ../src/linalg.cpp \
 
 /usr/include/gnu/stubs-64.h:
 
+/usr/include/c++/12.1.0/bits/stl_bvector.h:
+
 /usr/include/c++/12.1.0/bits/memoryfwd.h:
 
 /usr/include/c++/12.1.0/x86_64-pc-linux-gnu/bits/c++locale.h:
 
 /usr/include/c++/12.1.0/exception:
+
+/usr/include/c++/12.1.0/tr1/poly_hermite.tcc:
+
+/usr/include/bits/libm-simd-decl-stubs.h:
 
 /usr/include/c++/12.1.0/bits/new_allocator.h:
 
@@ -781,6 +964,8 @@ CMakeFiles/DSAlgorithms.dir/src/linalg.cpp.o: ../src/linalg.cpp \
 
 /usr/include/c++/12.1.0/x86_64-pc-linux-gnu/bits/cpu_defines.h:
 
+/usr/include/c++/12.1.0/cmath:
+
 /usr/include/c++/12.1.0/bits/nested_exception.h:
 
 /usr/include/c++/12.1.0/ios:
@@ -789,11 +974,15 @@ CMakeFiles/DSAlgorithms.dir/src/linalg.cpp.o: ../src/linalg.cpp \
 
 /usr/include/c++/12.1.0/bits/postypes.h:
 
+/usr/include/c++/12.1.0/random:
+
 /usr/include/c++/12.1.0/bits/locale_facets.tcc:
 
 /usr/include/c++/12.1.0/ext/numeric_traits.h:
 
 /usr/include/wchar.h:
+
+/usr/include/c++/12.1.0/ctime:
 
 /usr/include/c++/12.1.0/cstdint:
 
@@ -813,6 +1002,8 @@ CMakeFiles/DSAlgorithms.dir/src/linalg.cpp.o: ../src/linalg.cpp \
 
 /usr/include/ctype.h:
 
+/usr/include/c++/12.1.0/tr1/beta_function.tcc:
+
 /usr/include/features.h:
 
 /usr/include/bits/endianness.h:
@@ -826,6 +1017,8 @@ CMakeFiles/DSAlgorithms.dir/src/linalg.cpp.o: ../src/linalg.cpp \
 /usr/include/c++/12.1.0/ext/atomicity.h:
 
 /usr/include/c++/12.1.0/x86_64-pc-linux-gnu/bits/gthr-default.h:
+
+/usr/include/bits/mathcalls.h:
 
 /usr/include/bits/types/__fpos_t.h:
 
@@ -852,6 +1045,8 @@ CMakeFiles/DSAlgorithms.dir/src/linalg.cpp.o: ../src/linalg.cpp \
 /usr/include/bits/types/struct_sched_param.h:
 
 /usr/include/time.h:
+
+/usr/include/c++/12.1.0/bits/random.tcc:
 
 /usr/include/bits/types/clockid_t.h:
 
@@ -891,6 +1086,8 @@ CMakeFiles/DSAlgorithms.dir/src/linalg.cpp.o: ../src/linalg.cpp \
 
 /usr/include/sys/single_threaded.h:
 
+/usr/include/c++/12.1.0/tr1/special_function_util.h:
+
 /usr/include/c++/12.1.0/bits/allocator.h:
 
 /usr/include/bits/stdio_lim.h:
@@ -923,11 +1120,17 @@ CMakeFiles/DSAlgorithms.dir/src/linalg.cpp.o: ../src/linalg.cpp \
 
 /usr/include/c++/12.1.0/backward/binders.h:
 
+/usr/include/c++/12.1.0/tr1/riemann_zeta.tcc:
+
+/usr/include/bits/flt-eval-method.h:
+
 /usr/include/bits/types/FILE.h:
 
 /usr/include/c++/12.1.0/bits/stl_algobase.h:
 
 /usr/include/c++/12.1.0/bits/stl_pair.h:
+
+/usr/include/c++/12.1.0/bits/uniform_int_dist.h:
 
 /usr/include/c++/12.1.0/bits/utility.h:
 
@@ -938,6 +1141,8 @@ CMakeFiles/DSAlgorithms.dir/src/linalg.cpp.o: ../src/linalg.cpp \
 /usr/include/c++/12.1.0/bits/invoke.h:
 
 /usr/include/c++/12.1.0/bits/range_access.h:
+
+/usr/include/c++/12.1.0/bits/vector.tcc:
 
 /usr/include/c++/12.1.0/initializer_list:
 
