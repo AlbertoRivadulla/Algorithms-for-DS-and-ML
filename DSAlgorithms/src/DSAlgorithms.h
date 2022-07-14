@@ -3,10 +3,10 @@
 
 #include <iostream>
 
-// #include "basicsStatistics.h"
-// #include "linalg.h"
-// #include "clustering.h"
-// #include "dimensionalReduction.h"
+#include "basicsStatistics.h"
+#include "linalg.h"
+#include "clustering.h"
+#include "dimensionalReduction.h"
 
 // Write here the wrappers for the functions that will be called from Python
 extern "C"
@@ -25,6 +25,18 @@ extern "C"
     double* computePCA( const double* data, const int nData, const int dim, 
                         double* reducedData, const int dimReduced=2 );
 
+
+    //--------------------------------------------------------------
+    // Methods implemented in clustering.cpp
+
+    // K-means clustering
+    //      data: the dataset
+    //      nData: the number of points
+    //      dim: the number of features
+    //      K: the number of clusters to form
+    //      clusterIndices: array to output the cluster index of each data point
+    void computeKMeansClusters( const double* data, const int nData, const int dim,
+                                const int K, int* clusterIndices, double* means );
 }
 
 #endif

@@ -134,13 +134,7 @@ CMakeFiles/DSAlgorithms.dir/src/clustering.cpp.o: \
  /usr/include/c++/12.1.0/bits/locale_facets.tcc \
  /usr/include/c++/12.1.0/bits/basic_ios.tcc \
  /usr/include/c++/12.1.0/bits/ostream.tcc /usr/include/c++/12.1.0/istream \
- /usr/include/c++/12.1.0/bits/istream.tcc \
- /home/albertors/Datos/Data_science_and_machine_learning/Projects/001_Algorithms_in_data_science/DSAlgorithms/src/linalg.h \
- /usr/include/c++/12.1.0/vector \
- /usr/include/c++/12.1.0/bits/stl_uninitialized.h \
- /usr/include/c++/12.1.0/bits/stl_vector.h \
- /usr/include/c++/12.1.0/bits/stl_bvector.h \
- /usr/include/c++/12.1.0/bits/vector.tcc /usr/include/c++/12.1.0/random \
+ /usr/include/c++/12.1.0/bits/istream.tcc /usr/include/c++/12.1.0/random \
  /usr/include/c++/12.1.0/cmath /usr/include/math.h \
  /usr/include/bits/math-vector.h /usr/include/bits/libm-simd-decl-stubs.h \
  /usr/include/bits/flt-eval-method.h /usr/include/bits/fp-logb.h \
@@ -160,11 +154,20 @@ CMakeFiles/DSAlgorithms.dir/src/clustering.cpp.o: \
  /usr/include/c++/12.1.0/tr1/poly_hermite.tcc \
  /usr/include/c++/12.1.0/tr1/poly_laguerre.tcc \
  /usr/include/c++/12.1.0/tr1/riemann_zeta.tcc \
- /usr/include/c++/12.1.0/bits/random.h \
+ /usr/include/c++/12.1.0/bits/random.h /usr/include/c++/12.1.0/vector \
+ /usr/include/c++/12.1.0/bits/stl_uninitialized.h \
+ /usr/include/c++/12.1.0/bits/stl_vector.h \
+ /usr/include/c++/12.1.0/bits/stl_bvector.h \
+ /usr/include/c++/12.1.0/bits/vector.tcc \
  /usr/include/c++/12.1.0/bits/uniform_int_dist.h \
  /usr/include/c++/12.1.0/x86_64-pc-linux-gnu/bits/opt_random.h \
  /usr/include/c++/12.1.0/bits/random.tcc /usr/include/c++/12.1.0/numeric \
  /usr/include/c++/12.1.0/bits/stl_numeric.h /usr/include/c++/12.1.0/bit \
  /usr/include/c++/12.1.0/pstl/glue_numeric_defs.h \
  /usr/include/c++/12.1.0/pstl/execution_defs.h \
- /usr/include/c++/12.1.0/ctime
+ /usr/include/c++/12.1.0/ctime \
+ /home/albertors/Datos/Data_science_and_machine_learning/Projects/001_Algorithms_in_data_science/DSAlgorithms/src/linalg.h \
+ /home/albertors/Datos/Data_science_and_machine_learning/Projects/001_Algorithms_in_data_science/DSAlgorithms/src/basicsStatistics.h \
+ /home/albertors/Datos/Data_science_and_machine_learning/Projects/001_Algorithms_in_data_science/DSAlgorithms/src/DSAlgorithms.h \
+ /home/albertors/Datos/Data_science_and_machine_learning/Projects/001_Algorithms_in_data_science/DSAlgorithms/src/dimensionalReduction.h \
+ /home/albertors/Datos/Data_science_and_machine_learning/Projects/001_Algorithms_in_data_science/DSAlgorithms/src/auxFunctions.h

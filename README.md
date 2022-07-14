@@ -8,6 +8,8 @@ The file `tests.ipynb` contains some examples using these functions.
 
 - Dimensional reduction techniques
     - Principal component analysis
+- Clustering
+    - K-means
 
 ### Work in progress
 
@@ -16,7 +18,6 @@ The file `tests.ipynb` contains some examples using these functions.
     - Kernel PCA
     - Factor analysis
 - Clustering
-    - K-means
     - Agglomerative clustering
     - DBSCAN algorithm
 - Neural networks
