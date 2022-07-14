@@ -33,6 +33,9 @@ add_library(DSAlgorithms SHARED
     ${PROJECT_SOURCE_DIR}/src/linalg.cpp
     ${PROJECT_SOURCE_DIR}/src/clustering.cpp
     ${PROJECT_SOURCE_DIR}/src/dimensionalReduction.cpp
+    ${PROJECT_SOURCE_DIR}/src/basicsStatistics.cpp
+    ${PROJECT_SOURCE_DIR}/src/auxFunctions.cpp
+    # ${PROJECT_SOURCE_DIR}/src/DSAlgorithms.cpp
     )
 
 # Set the VERSION property

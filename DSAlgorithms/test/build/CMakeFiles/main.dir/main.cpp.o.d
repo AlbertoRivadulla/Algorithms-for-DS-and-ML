@@ -137,6 +137,7 @@ CMakeFiles/main.dir/main.cpp.o: \
  /usr/include/c++/12.1.0/bits/stl_bvector.h \
  /usr/include/c++/12.1.0/bits/vector.tcc \
  /home/albertors/Datos/Data_science_and_machine_learning/Projects/001_Algorithms_in_data_science/DSAlgorithms/test/../src/DSAlgorithms.h \
+ /home/albertors/Datos/Data_science_and_machine_learning/Projects/001_Algorithms_in_data_science/DSAlgorithms/test/../src/basicsStatistics.h \
  /home/albertors/Datos/Data_science_and_machine_learning/Projects/001_Algorithms_in_data_science/DSAlgorithms/test/../src/linalg.h \
  /usr/include/c++/12.1.0/random /usr/include/c++/12.1.0/cmath \
  /usr/include/math.h /usr/include/bits/math-vector.h \
@@ -168,4 +169,7 @@ CMakeFiles/main.dir/main.cpp.o: \
  /usr/include/c++/12.1.0/ctime \
  /home/albertors/Datos/Data_science_and_machine_learning/Projects/001_Algorithms_in_data_science/DSAlgorithms/test/../src/clustering.h \
  /home/albertors/Datos/Data_science_and_machine_learning/Projects/001_Algorithms_in_data_science/DSAlgorithms/test/../src/dimensionalReduction.h \
+ /home/albertors/Datos/Data_science_and_machine_learning/Projects/001_Algorithms_in_data_science/DSAlgorithms/test/../src/DSAlgorithms.h \
+ /home/albertors/Datos/Data_science_and_machine_learning/Projects/001_Algorithms_in_data_science/DSAlgorithms/test/src/auxFunctions.h \
+ /home/albertors/Datos/Data_science_and_machine_learning/Projects/001_Algorithms_in_data_science/DSAlgorithms/test/src/tests.h \
  /home/albertors/Datos/Data_science_and_machine_learning/Projects/001_Algorithms_in_data_science/DSAlgorithms/test/src/auxFunctions.h

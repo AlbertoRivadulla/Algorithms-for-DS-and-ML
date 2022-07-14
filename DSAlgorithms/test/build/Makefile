@@ -177,6 +177,30 @@ src/auxFunctions.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/auxFunctions.cpp.s
 .PHONY : src/auxFunctions.cpp.s
 
+src/tests.o: src/tests.cpp.o
+.PHONY : src/tests.o
+
+# target to build an object file
+src/tests.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/tests.cpp.o
+.PHONY : src/tests.cpp.o
+
+src/tests.i: src/tests.cpp.i
+.PHONY : src/tests.i
+
+# target to preprocess a source file
+src/tests.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/tests.cpp.i
+.PHONY : src/tests.cpp.i
+
+src/tests.s: src/tests.cpp.s
+.PHONY : src/tests.s
+
+# target to generate assembly for a file
+src/tests.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/tests.cpp.s
+.PHONY : src/tests.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -192,6 +216,9 @@ help:
 	@echo "... src/auxFunctions.o"
 	@echo "... src/auxFunctions.i"
 	@echo "... src/auxFunctions.s"
+	@echo "... src/tests.o"
+	@echo "... src/tests.i"
+	@echo "... src/tests.s"
 .PHONY : help
 
 

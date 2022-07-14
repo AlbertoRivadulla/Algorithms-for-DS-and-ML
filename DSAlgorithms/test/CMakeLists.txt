@@ -43,6 +43,7 @@ include_directories(${INCLUDE})
 set(SOURCES
     main.cpp
     ${PROJECT_SOURCE_DIR}/src/auxFunctions.cpp
+    ${PROJECT_SOURCE_DIR}/src/tests.cpp
    )
 
 add_executable(main ${SOURCES})

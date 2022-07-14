@@ -8,5 +8,10 @@
   "directory": "/home/albertors/Datos/Data_science_and_machine_learning/Projects/001_Algorithms_in_data_science/DSAlgorithms/test/build",
   "command": "/usr/bin/c++  -I/home/albertors/Datos/Data_science_and_machine_learning/Projects/001_Algorithms_in_data_science/DSAlgorithms/test -I/home/albertors/Datos/Data_science_and_machine_learning/Projects/001_Algorithms_in_data_science/DSAlgorithms/test/src -I/home/albertors/Datos/Data_science_and_machine_learning/Projects/001_Algorithms_in_data_science/DSAlgorithms/test/../src  -o CMakeFiles/main.dir/src/auxFunctions.cpp.o -c /home/albertors/Datos/Data_science_and_machine_learning/Projects/001_Algorithms_in_data_science/DSAlgorithms/test/src/auxFunctions.cpp",
   "file": "/home/albertors/Datos/Data_science_and_machine_learning/Projects/001_Algorithms_in_data_science/DSAlgorithms/test/src/auxFunctions.cpp"
+},
+{
+  "directory": "/home/albertors/Datos/Data_science_and_machine_learning/Projects/001_Algorithms_in_data_science/DSAlgorithms/test/build",
+  "command": "/usr/bin/c++  -I/home/albertors/Datos/Data_science_and_machine_learning/Projects/001_Algorithms_in_data_science/DSAlgorithms/test -I/home/albertors/Datos/Data_science_and_machine_learning/Projects/001_Algorithms_in_data_science/DSAlgorithms/test/src -I/home/albertors/Datos/Data_science_and_machine_learning/Projects/001_Algorithms_in_data_science/DSAlgorithms/test/../src  -o CMakeFiles/main.dir/src/tests.cpp.o -c /home/albertors/Datos/Data_science_and_machine_learning/Projects/001_Algorithms_in_data_science/DSAlgorithms/test/src/tests.cpp",
+  "file": "/home/albertors/Datos/Data_science_and_machine_learning/Projects/001_Algorithms_in_data_science/DSAlgorithms/test/src/tests.cpp"
 }
 ]

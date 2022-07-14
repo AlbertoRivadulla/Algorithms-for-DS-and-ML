@@ -174,6 +174,54 @@ DSAlgorithms/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/DSAlgorithms.dir/build.make CMakeFiles/DSAlgorithms.dir/build
 .PHONY : DSAlgorithms/fast
 
+src/auxFunctions.o: src/auxFunctions.cpp.o
+.PHONY : src/auxFunctions.o
+
+# target to build an object file
+src/auxFunctions.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DSAlgorithms.dir/build.make CMakeFiles/DSAlgorithms.dir/src/auxFunctions.cpp.o
+.PHONY : src/auxFunctions.cpp.o
+
+src/auxFunctions.i: src/auxFunctions.cpp.i
+.PHONY : src/auxFunctions.i
+
+# target to preprocess a source file
+src/auxFunctions.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DSAlgorithms.dir/build.make CMakeFiles/DSAlgorithms.dir/src/auxFunctions.cpp.i
+.PHONY : src/auxFunctions.cpp.i
+
+src/auxFunctions.s: src/auxFunctions.cpp.s
+.PHONY : src/auxFunctions.s
+
+# target to generate assembly for a file
+src/auxFunctions.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DSAlgorithms.dir/build.make CMakeFiles/DSAlgorithms.dir/src/auxFunctions.cpp.s
+.PHONY : src/auxFunctions.cpp.s
+
+src/basicsStatistics.o: src/basicsStatistics.cpp.o
+.PHONY : src/basicsStatistics.o
+
+# target to build an object file
+src/basicsStatistics.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DSAlgorithms.dir/build.make CMakeFiles/DSAlgorithms.dir/src/basicsStatistics.cpp.o
+.PHONY : src/basicsStatistics.cpp.o
+
+src/basicsStatistics.i: src/basicsStatistics.cpp.i
+.PHONY : src/basicsStatistics.i
+
+# target to preprocess a source file
+src/basicsStatistics.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DSAlgorithms.dir/build.make CMakeFiles/DSAlgorithms.dir/src/basicsStatistics.cpp.i
+.PHONY : src/basicsStatistics.cpp.i
+
+src/basicsStatistics.s: src/basicsStatistics.cpp.s
+.PHONY : src/basicsStatistics.s
+
+# target to generate assembly for a file
+src/basicsStatistics.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DSAlgorithms.dir/build.make CMakeFiles/DSAlgorithms.dir/src/basicsStatistics.cpp.s
+.PHONY : src/basicsStatistics.cpp.s
+
 src/clustering.o: src/clustering.cpp.o
 .PHONY : src/clustering.o
 
@@ -259,6 +307,12 @@ help:
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... DSAlgorithms"
+	@echo "... src/auxFunctions.o"
+	@echo "... src/auxFunctions.i"
+	@echo "... src/auxFunctions.s"
+	@echo "... src/basicsStatistics.o"
+	@echo "... src/basicsStatistics.i"
+	@echo "... src/basicsStatistics.s"
 	@echo "... src/clustering.o"
 	@echo "... src/clustering.i"
 	@echo "... src/clustering.s"

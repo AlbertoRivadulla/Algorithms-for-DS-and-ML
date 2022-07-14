@@ -2,9 +2,11 @@
 #define DIMENSIONAL_REDUCTION_H
 
 #include <iostream>
+#include <random>
 
 #include "linalg.h"
-
-void test();
+#include "basicsStatistics.h"
+#include "DSAlgorithms.h"
+#include "auxFunctions.h"
 
 #endif

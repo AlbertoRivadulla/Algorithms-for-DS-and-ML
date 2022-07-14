@@ -13,5 +13,15 @@
   "directory": "/home/albertors/Datos/Data_science_and_machine_learning/Projects/001_Algorithms_in_data_science/DSAlgorithms/build",
   "command": "/usr/bin/c++ -DDSAlgorithms_EXPORTS -I/home/albertors/Datos/Data_science_and_machine_learning/Projects/001_Algorithms_in_data_science/DSAlgorithms/src -O3 -DNDEBUG -fPIC -o CMakeFiles/DSAlgorithms.dir/src/dimensionalReduction.cpp.o -c /home/albertors/Datos/Data_science_and_machine_learning/Projects/001_Algorithms_in_data_science/DSAlgorithms/src/dimensionalReduction.cpp",
   "file": "/home/albertors/Datos/Data_science_and_machine_learning/Projects/001_Algorithms_in_data_science/DSAlgorithms/src/dimensionalReduction.cpp"
+},
+{
+  "directory": "/home/albertors/Datos/Data_science_and_machine_learning/Projects/001_Algorithms_in_data_science/DSAlgorithms/build",
+  "command": "/usr/bin/c++ -DDSAlgorithms_EXPORTS -I/home/albertors/Datos/Data_science_and_machine_learning/Projects/001_Algorithms_in_data_science/DSAlgorithms/src -O3 -DNDEBUG -fPIC -o CMakeFiles/DSAlgorithms.dir/src/basicsStatistics.cpp.o -c /home/albertors/Datos/Data_science_and_machine_learning/Projects/001_Algorithms_in_data_science/DSAlgorithms/src/basicsStatistics.cpp",
+  "file": "/home/albertors/Datos/Data_science_and_machine_learning/Projects/001_Algorithms_in_data_science/DSAlgorithms/src/basicsStatistics.cpp"
+},
+{
+  "directory": "/home/albertors/Datos/Data_science_and_machine_learning/Projects/001_Algorithms_in_data_science/DSAlgorithms/build",
+  "command": "/usr/bin/c++ -DDSAlgorithms_EXPORTS -I/home/albertors/Datos/Data_science_and_machine_learning/Projects/001_Algorithms_in_data_science/DSAlgorithms/src -O3 -DNDEBUG -fPIC -o CMakeFiles/DSAlgorithms.dir/src/auxFunctions.cpp.o -c /home/albertors/Datos/Data_science_and_machine_learning/Projects/001_Algorithms_in_data_science/DSAlgorithms/src/auxFunctions.cpp",
+  "file": "/home/albertors/Datos/Data_science_and_machine_learning/Projects/001_Algorithms_in_data_science/DSAlgorithms/src/auxFunctions.cpp"
 }
 ]

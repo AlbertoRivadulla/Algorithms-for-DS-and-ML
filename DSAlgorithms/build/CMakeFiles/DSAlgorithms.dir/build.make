@@ -111,11 +111,41 @@ CMakeFiles/DSAlgorithms.dir/src/dimensionalReduction.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/DSAlgorithms.dir/src/dimensionalReduction.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/albertors/Datos/Data_science_and_machine_learning/Projects/001_Algorithms_in_data_science/DSAlgorithms/src/dimensionalReduction.cpp -o CMakeFiles/DSAlgorithms.dir/src/dimensionalReduction.cpp.s
 
+CMakeFiles/DSAlgorithms.dir/src/basicsStatistics.cpp.o: CMakeFiles/DSAlgorithms.dir/flags.make
+CMakeFiles/DSAlgorithms.dir/src/basicsStatistics.cpp.o: ../src/basicsStatistics.cpp
+CMakeFiles/DSAlgorithms.dir/src/basicsStatistics.cpp.o: CMakeFiles/DSAlgorithms.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/albertors/Datos/Data_science_and_machine_learning/Projects/001_Algorithms_in_data_science/DSAlgorithms/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/DSAlgorithms.dir/src/basicsStatistics.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/DSAlgorithms.dir/src/basicsStatistics.cpp.o -MF CMakeFiles/DSAlgorithms.dir/src/basicsStatistics.cpp.o.d -o CMakeFiles/DSAlgorithms.dir/src/basicsStatistics.cpp.o -c /home/albertors/Datos/Data_science_and_machine_learning/Projects/001_Algorithms_in_data_science/DSAlgorithms/src/basicsStatistics.cpp
+
+CMakeFiles/DSAlgorithms.dir/src/basicsStatistics.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/DSAlgorithms.dir/src/basicsStatistics.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/albertors/Datos/Data_science_and_machine_learning/Projects/001_Algorithms_in_data_science/DSAlgorithms/src/basicsStatistics.cpp > CMakeFiles/DSAlgorithms.dir/src/basicsStatistics.cpp.i
+
+CMakeFiles/DSAlgorithms.dir/src/basicsStatistics.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/DSAlgorithms.dir/src/basicsStatistics.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/albertors/Datos/Data_science_and_machine_learning/Projects/001_Algorithms_in_data_science/DSAlgorithms/src/basicsStatistics.cpp -o CMakeFiles/DSAlgorithms.dir/src/basicsStatistics.cpp.s
+
+CMakeFiles/DSAlgorithms.dir/src/auxFunctions.cpp.o: CMakeFiles/DSAlgorithms.dir/flags.make
+CMakeFiles/DSAlgorithms.dir/src/auxFunctions.cpp.o: ../src/auxFunctions.cpp
+CMakeFiles/DSAlgorithms.dir/src/auxFunctions.cpp.o: CMakeFiles/DSAlgorithms.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/albertors/Datos/Data_science_and_machine_learning/Projects/001_Algorithms_in_data_science/DSAlgorithms/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/DSAlgorithms.dir/src/auxFunctions.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/DSAlgorithms.dir/src/auxFunctions.cpp.o -MF CMakeFiles/DSAlgorithms.dir/src/auxFunctions.cpp.o.d -o CMakeFiles/DSAlgorithms.dir/src/auxFunctions.cpp.o -c /home/albertors/Datos/Data_science_and_machine_learning/Projects/001_Algorithms_in_data_science/DSAlgorithms/src/auxFunctions.cpp
+
+CMakeFiles/DSAlgorithms.dir/src/auxFunctions.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/DSAlgorithms.dir/src/auxFunctions.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/albertors/Datos/Data_science_and_machine_learning/Projects/001_Algorithms_in_data_science/DSAlgorithms/src/auxFunctions.cpp > CMakeFiles/DSAlgorithms.dir/src/auxFunctions.cpp.i
+
+CMakeFiles/DSAlgorithms.dir/src/auxFunctions.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/DSAlgorithms.dir/src/auxFunctions.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/albertors/Datos/Data_science_and_machine_learning/Projects/001_Algorithms_in_data_science/DSAlgorithms/src/auxFunctions.cpp -o CMakeFiles/DSAlgorithms.dir/src/auxFunctions.cpp.s
+
 # Object files for target DSAlgorithms
 DSAlgorithms_OBJECTS = \
 "CMakeFiles/DSAlgorithms.dir/src/linalg.cpp.o" \
 "CMakeFiles/DSAlgorithms.dir/src/clustering.cpp.o" \
-"CMakeFiles/DSAlgorithms.dir/src/dimensionalReduction.cpp.o"
+"CMakeFiles/DSAlgorithms.dir/src/dimensionalReduction.cpp.o" \
+"CMakeFiles/DSAlgorithms.dir/src/basicsStatistics.cpp.o" \
+"CMakeFiles/DSAlgorithms.dir/src/auxFunctions.cpp.o"
 
 # External object files for target DSAlgorithms
 DSAlgorithms_EXTERNAL_OBJECTS =
@@ -123,9 +153,11 @@ DSAlgorithms_EXTERNAL_OBJECTS =
 libDSAlgorithms.so.1.0.1: CMakeFiles/DSAlgorithms.dir/src/linalg.cpp.o
 libDSAlgorithms.so.1.0.1: CMakeFiles/DSAlgorithms.dir/src/clustering.cpp.o
 libDSAlgorithms.so.1.0.1: CMakeFiles/DSAlgorithms.dir/src/dimensionalReduction.cpp.o
+libDSAlgorithms.so.1.0.1: CMakeFiles/DSAlgorithms.dir/src/basicsStatistics.cpp.o
+libDSAlgorithms.so.1.0.1: CMakeFiles/DSAlgorithms.dir/src/auxFunctions.cpp.o
 libDSAlgorithms.so.1.0.1: CMakeFiles/DSAlgorithms.dir/build.make
 libDSAlgorithms.so.1.0.1: CMakeFiles/DSAlgorithms.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/albertors/Datos/Data_science_and_machine_learning/Projects/001_Algorithms_in_data_science/DSAlgorithms/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX shared library libDSAlgorithms.so"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/albertors/Datos/Data_science_and_machine_learning/Projects/001_Algorithms_in_data_science/DSAlgorithms/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX shared library libDSAlgorithms.so"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/DSAlgorithms.dir/link.txt --verbose=$(VERBOSE)
 	$(CMAKE_COMMAND) -E cmake_symlink_library libDSAlgorithms.so.1.0.1 libDSAlgorithms.so.1.0.1 libDSAlgorithms.so
 

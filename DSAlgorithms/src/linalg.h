@@ -15,10 +15,16 @@ template <typename T>
 void printVector( const T* v, const int& n );
 template <typename T>
 void printVector( const std::vector<T>& v );
+void printVector( const std::vector<double>& v );
 
 // Print a square matrix
 template <typename T>
 void printSqMatrix( const T* M, const int& n );
+void printSqMatrix( const double* M, const int& n );
+
+// Print the eigenvalues and eigenvectors
+void printEigen( const std::vector<double> eigenvalues, 
+                 const std::vector<std::vector<double>> eigenvectors, const int& n);
 
 // Check if all components of two vectors are close, within a given tolerance
 bool allCloseVectors( const std::vector<double>& v1, 
@@ -71,10 +77,9 @@ void computeQRDecomposition( const T* A, T* Q, T* R, const int& n );
 void computeEigenPower( const double* matrix, const int& n, std::vector<double>& eigenVals,
                         std::vector<std::vector<double>>& eigenVectors, double tolerance=0.000001 );
 
-// Function to compute the eigenvalues and eigenvectors of a hermitian matrix M,
-// using the QR algorithm
+// Function to compute the eigenvalues and eigenvectors of a hermitian and positive
+// definite matrix M, using the QR algorithm
 void computeEigenQR( const double* matrix, const int& n, std::vector<double>& eigenVals,
                      std::vector<std::vector<double>>& eigenVectors, double tolerance=0.0001 );
-
 
 #endif

@@ -21,6 +21,13 @@ void printVector( const std::vector<T>& v )
         std::cout << v[i] << ' ';
     std::cout << ")\n";
 }
+void printVector( const std::vector<double>& v )
+{
+    std::cout << "( ";
+    for (int i = 0; i < v.size(); ++i)
+        std::cout << v[i] << ' ';
+    std::cout << ")\n";
+}
 
 // Print a square matrix
 template <typename T>
@@ -32,6 +39,39 @@ void printSqMatrix( const T* M, const int& n )
         for (int i = 0; i < n; ++i)
             std::cout << M[j*n + i] << ' ';
         std::cout << "]\n";
+    }
+}
+void printSqMatrix( const double* M, const int& n )
+{
+    for (int j = 0; j < n; ++j)
+    {
+        std::cout << "[ ";
+        for (int i = 0; i < n; ++i)
+            std::cout << M[j*n + i] << ' ';
+        std::cout << "]\n";
+    }
+}
+
+// Print the eigenvalues and eigenvectors
+void printEigen( const std::vector<double> eigenvalues, 
+                 const std::vector<std::vector<double>> eigenvectors, const int& n)
+{
+    std::cout << "Eigenvalues: ( ";
+    for (int i = 0; i < n-1; ++i)
+    {
+        std::cout << eigenvalues[i] << ", ";
+    }
+    std::cout << eigenvalues[n-1] << " )\n\n";
+
+    std::cout << "Eigenvectors:\n";
+    for (int i = 0; i < n; ++i)
+    {
+        std::cout << "( ";
+        for (int j = 0; j < n-1; ++j)
+        {
+            std::cout << eigenvectors[i][j] << ", ";
+        }
+        std::cout << eigenvectors[i][n-1] << " )\n";
     }
 }
 
@@ -236,8 +276,8 @@ void computeEigenPower( const double* matrix, const int& n, std::vector<double>&
     eigenVals[0] = normVector( Mtimesv );
 }
 
-// Function to compute the eigenvalues and eigenvectors of a hermitian matrix M,
-// using the QR algorithm
+// Function to compute the eigenvalues and eigenvectors of a hermitian and positive
+// definite matrix M, using the QR algorithm
 void computeEigenQR( const double* matrix, const int& n, std::vector<double>& eigenVals,
                      std::vector<std::vector<double>>& eigenVectors, double tolerance )
 {
@@ -305,5 +345,3 @@ void computeEigenQR( const double* matrix, const int& n, std::vector<double>& ei
         eigenVals[i] = normVector( multiplySqMatrixVector( matrix, eigenVectors[i], n ) );
     }
 }
-
-

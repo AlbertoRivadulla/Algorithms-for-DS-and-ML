@@ -6,12 +6,12 @@ The file `tests.ipynb` contains some examples using these functions.
 
 ### Algorithms implemented
 
-...
+- Dimensional reduction techniques
+    - Principal component analysis
 
 ### Work in progress
 
 - Dimensional reduction techniques
-    - Principal component analysis
     - t-SNE
     - Kernel PCA
     - Factor analysis
