@@ -5,6 +5,9 @@
 #include <random>
 #include <ctime>
 #include <limits>
+// #include <iterator>
+// #include <set>
+#include <queue>
 
 #include "linalg.h"
 #include "basicsStatistics.h"
@@ -47,5 +50,13 @@ inline int mapIndices( const int& i, const int& j, const int& n );
 void computeWardClusterDistances( const double* means, const int* nPointsClusters, 
                                   const int dim, double* distances, 
                                   const int& nPoints );
+
+
+//------------------------------------------------------------------------------
+// DBSCAN clustering
+
+// Get the neighbors of a point index in the dataset, within a radius epsilon
+std::queue<int> getNeighbors( const double* data, const int& dim, const int& nData, 
+                              const int& index, const double& epsilonSq );
 
 #endif

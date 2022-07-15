@@ -11,6 +11,7 @@ The file `tests.ipynb` contains some examples using these functions.
 - Clustering
     - K-means
     - Agglomerative clustering
+    - DBSCAN algorithm
 
 ### Work in progress
 
@@ -18,8 +19,6 @@ The file `tests.ipynb` contains some examples using these functions.
     - t-SNE
     - Kernel PCA
     - Factor analysis
-- Clustering
-    - DBSCAN algorithm
 - Neural networks
     - Deep neural network
     - Convolutional neural network

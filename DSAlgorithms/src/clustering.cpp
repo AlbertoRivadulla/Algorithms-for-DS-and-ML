@@ -335,3 +335,123 @@ void computeAgglomerativeClusters( const double* data, const int nData,
 
     std::cout << "Data classified in " << nClusters << " clusters, found after " << iterations << " iterations.\n";
 }
+
+
+//------------------------------------------------------------------------------
+// DBSCAN clustering
+
+// Get the neighbors of a point index in the dataset, within a radius epsilon
+std::queue<int> getNeighbors( const double* data, const int& dim, const int& nData, 
+                              const int& index, const double& epsilonSq )
+{
+    // Initialize the empty queue
+    std::queue<int> neighbors;
+
+    // Iterate over all the points in the dataset
+    for ( int j = 0; j < nData; ++j )
+    {
+        // Check that they are not the same point!
+        if ( j == index )
+            continue;
+
+        // Compute the distance
+        double distSq = 0;
+        for ( int k = 0; k < dim; ++k )
+            distSq += ( data[j*dim+k] - data[index*dim+k] ) * 
+                      ( data[j*dim+k] - data[index*dim+k] );
+        
+        // If the distance is smaller than the threshold, add it to the list of 
+        // neighbors
+        if ( distSq < epsilonSq )
+            neighbors.push( j );
+    }
+
+    return neighbors;
+}
+
+// DBSCAN clustering
+//      data: the dataset
+//      nData: the number of points
+//      dim: the number of features
+//      epsilon: positive number that sets the scale of the clusters
+//      nrNeighborsCore: minimum nr of neighbors for a point to be a core point
+//      clusterLabels: array to output the cluster index of each data point
+// This function is declared in the header "DSAlgorithms.h"
+void computeDBSCANClusters( const double* data, const int nData, 
+                            const int dim, const double epsilon, 
+                            const int nrNeighborsCore, int* clusterLabels )
+{
+    std::cout << "Computing clusters with the DBSCAN algorithm...\n";
+
+    // Compute the value of epsilon squared, to speed up later computations
+    double epsilonSq = epsilon * epsilon;
+
+    // Cluster counter
+    int cluster = 1;
+
+    // Initialize all the labels to minus one
+    // This means the point has not been visited yet
+    for (int i = 0; i < nData; ++i)
+        clusterLabels[i] = -1;
+
+    // Process all points in the dataset in a sequential manner
+    for (int i = 0; i < nData; ++i)
+    {
+        // If the point is marked as unvisited (-1), continue
+        if ( clusterLabels[ i ] > 0 )
+            continue;
+
+        // Find the neighbors of the point within the distance epsilon
+        std::queue<int> neighbors = getNeighbors( data, dim, nData, i, epsilonSq );
+
+        // Check if the number of neighbors is bigger than the minimum in order
+        // to be a core-point
+        if ( neighbors.size() > nrNeighborsCore )
+        {
+            // If it is not, (mark it as noise) and continue
+            clusterLabels[ i ] = 0;
+            continue;
+        }
+
+        // Label the point as belonging to the current cluster
+        clusterLabels[ i ] = cluster;
+
+        // Iterate over the neighbors of the point
+        while ( !neighbors.empty() )
+        {
+            // Get the current neighbor and remove it from the queue
+            int currentNeigh = neighbors.front();
+            neighbors.pop();
+
+            // If the point already belongs to a cluster, continue
+            if ( clusterLabels[ currentNeigh ] > 0 )
+                continue;
+
+            // Otherwise, set the label of this point to the current cluster
+            clusterLabels[ currentNeigh ] = cluster;
+
+            // Compute the neighbors of this neighbor 
+            std::queue<int> neighsOfNeigh = getNeighbors( data, dim, nData, 
+                                                          currentNeigh, epsilonSq );
+
+            // Check if the neighbor is also a core-point
+            if ( neighsOfNeigh.size() > nrNeighborsCore )
+            {
+                // If it is, add them to the other list of neighbors
+                while ( !neighsOfNeigh.empty() )
+                {
+                    int currentNeighOfNeigh = neighsOfNeigh.front();
+                    neighsOfNeigh.pop();
+                    if ( clusterLabels[ currentNeighOfNeigh ] <= 0 )
+                        neighbors.push( currentNeighOfNeigh );
+                }
+                // neighbors.insert( neighsOfNeigh.begin(), neighsOfNeigh.end() );
+            }
+        }
+
+        // Add one to the cluster count
+        ++cluster;
+    }
+
+    std::cout << "\nData classified in " << cluster << " clusters.\n\n";
+}

@@ -49,6 +49,18 @@ extern "C"
     void computeAgglomerativeClusters( const double* data, const int nData, 
                                        const int dim, const int nClusters, 
                                        int* clusterIndices, double* means );
+
+    // DBSCAN clustering
+    //      data: the dataset
+    //      nData: the number of points
+    //      dim: the number of features
+    //      epsilon: positive number that sets the scale of the clusters
+    //      nrNeighborsCore: minimum nr of neighbors for a point to be a core point
+    //      clusterLabels: array to output the cluster index of each data point
+    // This function is declared in the header "DSAlgorithms.h"
+    void computeDBSCANClusters( const double* data, const int nData, 
+                                const int dim, const double epsilon, 
+                                const int nrNeighborsCore, int* clusterLabels );
 }
 
 #endif

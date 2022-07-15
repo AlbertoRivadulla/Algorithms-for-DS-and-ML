@@ -165,7 +165,12 @@ CMakeFiles/DSAlgorithms.dir/src/clustering.cpp.o: \
  /usr/include/c++/12.1.0/bits/stl_numeric.h /usr/include/c++/12.1.0/bit \
  /usr/include/c++/12.1.0/pstl/glue_numeric_defs.h \
  /usr/include/c++/12.1.0/pstl/execution_defs.h \
- /usr/include/c++/12.1.0/ctime \
+ /usr/include/c++/12.1.0/ctime /usr/include/c++/12.1.0/queue \
+ /usr/include/c++/12.1.0/deque /usr/include/c++/12.1.0/bits/stl_deque.h \
+ /usr/include/c++/12.1.0/bits/deque.tcc \
+ /usr/include/c++/12.1.0/bits/stl_heap.h \
+ /usr/include/c++/12.1.0/bits/stl_queue.h \
+ /usr/include/c++/12.1.0/bits/uses_allocator.h \
  /home/albertors/Datos/Data_science_and_machine_learning/Projects/001_Algorithms_in_data_science/DSAlgorithms/src/linalg.h \
  /home/albertors/Datos/Data_science_and_machine_learning/Projects/001_Algorithms_in_data_science/DSAlgorithms/src/basicsStatistics.h \
  /home/albertors/Datos/Data_science_and_machine_learning/Projects/001_Algorithms_in_data_science/DSAlgorithms/src/DSAlgorithms.h \
