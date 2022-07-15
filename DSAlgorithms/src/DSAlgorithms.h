@@ -35,8 +35,20 @@ extern "C"
     //      dim: the number of features
     //      K: the number of clusters to form
     //      clusterIndices: array to output the cluster index of each data point
+    //      means: array to output the positions of the means of the clusters
     void computeKMeansClusters( const double* data, const int nData, const int dim,
                                 const int K, int* clusterIndices, double* means );
+
+    // Agglomerative clustering
+    //      data: the dataset
+    //      nData: the number of points
+    //      dim: the number of features
+    //      nClusters: the number of clusters to form
+    //      clusterIndices: array to output the cluster index of each data point
+    //      means: array to output the positions of the means of the clusters
+    void computeAgglomerativeClusters( const double* data, const int nData, 
+                                       const int dim, const int nClusters, 
+                                       int* clusterIndices, double* means );
 }
 
 #endif

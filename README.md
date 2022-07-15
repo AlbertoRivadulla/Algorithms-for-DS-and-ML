@@ -10,6 +10,7 @@ The file `tests.ipynb` contains some examples using these functions.
     - Principal component analysis
 - Clustering
     - K-means
+    - Agglomerative clustering
 
 ### Work in progress
 
@@ -18,7 +19,6 @@ The file `tests.ipynb` contains some examples using these functions.
     - Kernel PCA
     - Factor analysis
 - Clustering
-    - Agglomerative clustering
     - DBSCAN algorithm
 - Neural networks
     - Deep neural network

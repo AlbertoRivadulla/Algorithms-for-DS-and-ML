@@ -115,6 +115,7 @@ void expectationStep( const double* data, const int nData, const int dim,
 //      dim: the number of features
 //      K: the number of clusters to form
 //      clusterIndices: array to output the cluster index of each data point
+//      means: array to output the positions of the means of the clusters
 // This function is declared in the header DSAlgorithms.h
 void computeKMeansClusters( const double* data, const int nData, const int dim,
                             const int K, int* clusterIndices, double* means )
@@ -156,4 +157,181 @@ void computeKMeansClusters( const double* data, const int nData, const int dim,
     while ( std::fabs( cost - previousCost ) > 0.00001 * scale && iteration < 300 );
 
     std::cout << "Data classified in " << K << " clusters, found after " << iteration << " iterations.\n";
+}
+
+
+
+//------------------------------------------------------------------------------
+// Agglomerative clustering
+
+// Map the indices (i, j) of a square matrix to indices of an array that represents
+// sequentially the elements of the upper triangle of the original one
+inline int mapIndices( const int& i, const int& j, const int& n )
+{
+    return j - 1 - (i*i + 3*i) / 2 + i*n;
+}
+
+// Compute the distances between pairs of clusters using Ward linkage
+void computeWardClusterDistances( const double* means, const int* nPointsClusters, 
+                                  const int dim, double* distances, 
+                                  const int& nPoints )
+{
+    // Iterate through the clusters
+    for (int i = 0; i < nPoints; ++i)
+    {
+        for (int j = i+1; j < nPoints; ++j)
+        {
+            // Check if there are points in the two clusters
+            if ( nPointsClusters[i] != 0 && nPointsClusters[j] != 0 )
+            {
+                // Compute the distances between the means
+                double distSqMeans = 0.;
+                for (int k = 0; k < dim; ++k)
+                {
+                    distSqMeans += ( means[i*dim+k] - means[j*dim+k] ) * 
+                                   ( means[i*dim+k] - means[j*dim+k] );
+                }
+                // Store the value in the matrix of distances
+                // The expression in the index maps (i,j) to sequential indices of
+                // the upper half diagonal
+                distances[ mapIndices( i, j, nPoints ) ] = distSqMeans * nPointsClusters[i] * 
+                                                           nPointsClusters[j] / (nPointsClusters[i] + nPointsClusters[j]);
+            }
+            else
+            {
+                distances[ mapIndices( i, j, nPoints ) ] = 0.;
+            }
+        }
+    }
+}
+
+// Agglomerative clustering, with Ward linkage for the distances
+//      data: the dataset
+//      nData: the number of points
+//      dim: the number of features
+//      nClusters: the number of clusters to form
+//      clusterIndices: array to output the cluster index of each data point
+//      means: array to output the positions of the means of the clusters
+// This function is declared in the header "DSAlgorithms.h"
+void computeAgglomerativeClusters( const double* data, const int nData, 
+                                   const int dim, const int nClusters, 
+                                   int* clusterIndices, double* means )
+{
+    std::cout << "Computing agglomerative clusters...\n";
+
+    // Initialize the cluster means
+    double* clusterMeans = new double [ dim * nData ];
+    for (int i = 0; i < dim*nData; ++i)
+        clusterMeans[i] = data[i];
+    // Initialize the cluster counters
+    int* nPointsClusters = new int [ nData ];
+    for (int i = 0; i < nData; ++i)
+        nPointsClusters[i] = 1;
+
+    // Matrix of distances between clusters
+    double* distances = new double[ (int)(nData * (nData - 1.) / 2.) ];
+    // Number of clusters
+    int nClustersCurrent = nData;
+    // In the beginning, each point is its own cluster
+    // Set this in the cluster labels
+    for (int i = 0; i < nData; ++i)
+        clusterIndices[i] = i;
+
+    // Iterate until the desired amount of clusters is reached
+    int iterations = 0;
+    do
+    {
+        // Compute the cluster distances
+        computeWardClusterDistances( clusterMeans, nPointsClusters, dim, distances, nData );
+
+        // Find the clusters with the smallest distance
+        int iMin1 = 0;
+        int iMin2 = 1;
+        double minDistSq = std::numeric_limits<double>::max();
+        for (int i = 0; i < nData; ++i)
+        {
+            for (int j = i+1; j < nData; ++j)
+            {
+                if ( distances[ mapIndices( i, j, nData ) ] < minDistSq && nPointsClusters[i] != 0 && nPointsClusters[j] != 0 )
+                {
+                    minDistSq = distances[ mapIndices( i, j, nData ) ];
+                    iMin1 = i;
+                    iMin2 = j;
+                }
+            }
+        }
+
+        // Merge the clusters with the smallest distance
+        // Update cluster labels
+        for ( int i = 0; i < nData; ++i )
+        {
+            if ( clusterIndices[i] == iMin2 )
+                clusterIndices[i] = iMin1;
+        }
+
+        // Update cluster means
+        for ( int j = 0; j < dim; ++j )
+        {
+            clusterMeans[ iMin1*dim + j ] *= nPointsClusters[ iMin1 ];
+            clusterMeans[ iMin2*dim + j ] *= nPointsClusters[ iMin2 ];
+            clusterMeans[ iMin1*dim + j ] += clusterMeans[ iMin2*dim + j ];
+            clusterMeans[ iMin1*dim + j ] /= ( nPointsClusters[ iMin2 ] + nPointsClusters[ iMin1 ] );
+        }
+
+        // Update cluster counts
+        nPointsClusters[ iMin1 ] += nPointsClusters[ iMin2 ];
+        nPointsClusters[ iMin2 ] = 0;
+
+        // Subtract one to the number of clusters
+        nClustersCurrent -= 1;
+
+        ++iterations;
+    }
+    while ( nClustersCurrent > nClusters );
+
+    // Put the cluster means in the output array
+    for ( int i = 0; i < nClusters; ++i )
+    {
+        for ( int j = 0; j < dim; ++j )
+            means[ i*dim+j ] = clusterMeans[ i*dim+j ];
+    }
+
+    // Map the cluster indices to numbers in ( 0, nClusters - 1 )
+    // Get the numbers in this range that do not label any cluster
+    std::vector<int> freeIndices;
+    for (int i = 0; i < nClusters; ++i)
+    {
+        if ( nPointsClusters[i] == 0 )
+            freeIndices.push_back( i );
+    }
+    // Iterate through the cluster labels
+    if ( freeIndices.size() > 0 )
+    {
+        for ( int i = 0; i < nData; ++i )
+        {
+            if ( clusterIndices[i] >= nClusters )
+            {
+                int thisIndex = clusterIndices[i];
+                // Replace the number of points in the clusters
+                nPointsClusters[freeIndices[freeIndices.size()-1]] = nPointsClusters[clusterIndices[i]];
+                nPointsClusters[clusterIndices[i]] = 0;
+
+                // Replace the means
+                for ( int j = 0; j < dim; ++j )
+                    means[ freeIndices[freeIndices.size()-1]*dim+j ] = clusterMeans[ thisIndex*dim+j ];
+
+                // Replace this index by the last in the vector of free indices
+                for ( int j = i; j < nData; ++j )
+                {
+                    if ( clusterIndices[j] == thisIndex )
+                        clusterIndices[j] = freeIndices[freeIndices.size()-1];
+                }
+
+                // Delete the index
+                freeIndices.pop_back();
+            }
+        }
+    }
+
+    std::cout << "Data classified in " << nClusters << " clusters, found after " << iterations << " iterations.\n";
 }
