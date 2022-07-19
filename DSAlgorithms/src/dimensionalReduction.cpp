@@ -71,18 +71,15 @@ double* computePCA( const double* data, const int nData, const int dim,
 
 // Compute the components of the matrix p_ij for t-SNE, from an array of data
 // points of a given dimension, and with a desired perplexity
+// void computeP_ijFortSNE( double* p, const double* data, const int& nData,
+//                          const int& dim, const double& perplexity)
 void computeP_ijFortSNE( double* p, const double* data, const int& nData,
                          const int& dim, const double& perplexity)
 {
-    // This needs to compute the bandwidth parameters sigma_i (for each data point)
-    // such that the perplexity constraint is met, using a numerical root-finding
-    // method.
-    // The distances between points can also be stored in a upper-triangle matrix.
-
     // Tolerance for the value of the local entropy
-    double toleranceEntropy = 0.001;
+    double toleranceEntropy = 0.0000001;
     // Desired value of the local entropy.
-    // I use natural logarithms instead of base 2, as in my notes.
+    // I use natural logarithms instead of base 2 as in my notes.
     double HGoal = std::log( perplexity );
 
     // Compute the distances between the points in an upper-triangle matrix
@@ -99,8 +96,14 @@ void computeP_ijFortSNE( double* p, const double* data, const int& nData,
         }
     }
 
+    // Find the maximum value of the squared distance, to initialize the betas
+    double maxDistSqX = 0.;
+    for ( int i = 0; i < (int)(nData*(nData-1.)/2.); ++i )
+        if ( distSqX[ i ] > maxDistSqX )
+            maxDistSqX = distSqX[ i ];
+
     // Initialize the vector for the bandwidth parameters.
-    // Instead of the variables sigma_i, I will compute
+    // Instead of the variables sigma_i, I will compute beta_i defined as:
     //      beta_i = 1/2 sigma_i^2
     double* betas = new double [ nData ];
 
@@ -108,13 +111,12 @@ void computeP_ijFortSNE( double* p, const double* data, const int& nData,
     for ( int i = 0; i < nData; ++i )
     {
         // Initialize the bandwidth parameter
-        betas[ i ] = 1.;
+        betas[ i ] = 1. / maxDistSqX;
 
         // Initialize parameters for the computation
         double H;
         // Initialize the limits for the window of values of beta, to find the
         // root of H - HGoal
-        // double betaLower = std::numeric_limits<double>::min();
         double betaLower = 0.;
         double betaUpper = std::numeric_limits<double>::max();
 
@@ -127,7 +129,6 @@ void computeP_ijFortSNE( double* p, const double* data, const int& nData,
             double denominatorP = 0.;
             for ( int k = 0; k < nData; ++k )
                 if ( k != i )
-                    // denominatorP += std::exp( - betas[i] * distSqX[ mapIndicesUpperTriang(i,k,nData) ] );
                     denominatorP += std::exp( - betas[i] * distSqX[ mapIndicesUpperTriangSym(i,k,nData) ] );
 
             // Compute the components of the matrix p_{j|i} for different j
@@ -139,7 +140,7 @@ void computeP_ijFortSNE( double* p, const double* data, const int& nData,
                     p[ i*nData + j ] = 0.;
                 else
                 {
-                    p[ i*nData + j ] = std::exp( - betas[i] * distSqX[ mapIndicesUpperTriang(i,j,nData) ] ) 
+                    p[ i*nData + j ] = std::exp( - betas[i] * distSqX[ mapIndicesUpperTriangSym(i,j,nData) ] ) 
                                        / denominatorP;
                     H += - p[ i*nData + j ] * std::log( p[ i*nData + j ] );
                 }
@@ -162,13 +163,10 @@ void computeP_ijFortSNE( double* p, const double* data, const int& nData,
                 betaUpper = betas[ i ];
                 betas[ i ] = ( betas[ i ] + betaLower ) / 2.;
             }
+
         }
         while ( std::fabs( H - HGoal ) > toleranceEntropy && iteration++ < 100000 );
     }
-
-    // for ( int i = 0; i < nData; ++i )
-    //     std::cout << betas[i] << ' ';
-    // std::cout << '\n';
 
     // Delete the previously defined arrays
     delete[] distSqX;
@@ -176,7 +174,7 @@ void computeP_ijFortSNE( double* p, const double* data, const int& nData,
 }
 
 // Compute the distances squared between the variables U_i.
-void computeDistSqU( const double* U, const int& nData, const int& dim,
+void computeDistSqU( const double* U, const int& nData, const int& dimReduced,
                      double* distSqU )
 {
     // Iterate through the points.
@@ -188,9 +186,9 @@ void computeDistSqU( const double* U, const int& nData, const int& dim,
         {
             int index = mapIndicesUpperTriang( i, j, nData );
             distSqU[ index ] = 0.;
-            for ( int k = 0; k < dim; ++k )
-                distSqU[ index ] += ( U[i*dim + k] - U[j*dim + k] ) *
-                                    ( U[i*dim + k] - U[j*dim + k] );
+            for ( int k = 0; k < dimReduced; ++k )
+                distSqU[ index ] += ( U[i*dimReduced + k] - U[j*dimReduced + k] ) *
+                                    ( U[i*dimReduced + k] - U[j*dimReduced + k] );
         }
     }
 }
@@ -205,25 +203,12 @@ void computeSimilarDistrtSNE( double* q, const double* distSqU, const int& nData
         double denominator = 0.;
         for ( int k = 0; k < nData; ++k )
         {
-        //     int index;
-        //     if ( k < i )
-        //     {
-        //         index = mapIndicesUpperTriang( i, k, nData );
-        //         denominator += 1. / ( 1. + distSqU[ index ] );
-        // std::cout << denominator << std::endl;
-        //     }
-        //     else if ( k > i )
-        //     {
-        //         index = mapIndicesUpperTriang( k, i, nData );
-        //         denominator += 1. / ( 1. + distSqU[ index ] );
-        //     }
-        //     else
-        //         continue;
-
             if ( k != i )
                 denominator += 1. / ( 1. + distSqU[ mapIndicesUpperTriangSym(i,k,nData) ] );
-            // std::cout << denominator << std::endl;
         }
+
+        // Normalization factor, such that the sum of all components of q_{ij} is 1
+        denominator *= nData;
 
         for ( int j = i + 1; j < nData; ++j )
         {
@@ -242,13 +227,7 @@ double computeCosttSNE( const double* pSym, const double* q, const int& nData )
     // Since both distributions are symmetric and with null diagonal, it is 
     // enough to iterate over the upper triangle and multiply by two
     for ( int i = 0; i < (int)( nData * (nData - 1.) / 2. ); ++i )
-    {
         cost += 2. * pSym[ i ] * std::log( pSym[ i ] / q[ i ] );
-        // std::cout << cost << ' ';
-        // std::cout << q[i] << ' ' << pSym[i] << " --- ";
-    }
-    //
-    // std::cout << "algo\n\n\n";
 
     return cost;
 }
@@ -274,10 +253,10 @@ void computeGradientCostFortSNE( const int& i, const double* pSym, const double*
             else
             {
                 // Index for the upper-triangle matrices
-                int index = ( i < j ) ? mapIndicesUpperTriang( i, j, nData ) 
-                                      : mapIndicesUpperTriang( j, i, nData );
+                int index = mapIndicesUpperTriangSym( i, j, nData );
 
-                // std::cout << index << ' ';
+                if ( index > nData * (nData-1.)/2.)
+                    std::cout << "Wrong index\n";
 
                 // Sum the corresponding value to the component of the gradient
                 gradient[ k ] += 4. * ( pSym[index] - q[index] ) *
@@ -307,20 +286,17 @@ void computetSNE( const double* data, const int nData, const int dim,
     // Setup the random seed
     std::srand( time(0) );
 
-    // Tolerance for the gradient descent
-    double gdTolerance = 0.001;
+    // Tolerance for the gradient descent and maximum number of iterations
+    double gdTolerance = 0.000001;
+    int maxIterations = 5000;
+    int itersForPrint = maxIterations / 20;
+    int itersForEndExaggeration = itersForPrint * 2;
 
     std::cout << "Computing the matrix p_{j|i}... ";
     // Compute the components of p_{j|i}
     double* p = new double [ nData * nData ];
     computeP_ijFortSNE( p, data, nData, dim, perplexity );
-    std::cout << "Done.\n";
-
-    // for ( int i = 0; i < nData * nData; ++i )
-    //     // std::cout << p[i] << ' ';
-    //     if ( p[i] == 0 )
-    //         std::cout << i << '\n';
-    // std::cout << "\n\n\n";
+    std::cout << "Done.\n\n";
 
     // From p_{j | i} above, compute the symmetrized version p_{ij}
     // Since p_{ii} = 0, we only need to compute the upper triangle
@@ -328,35 +304,31 @@ void computetSNE( const double* data, const int nData, const int dim,
     for ( int i = 0; i < nData; ++i )
     {
         for ( int j = i + 1; j < nData; ++j )
-        // {
-            // pSym[ mapIndicesUpperTriang( i, j, nData ) ] = ( p[i*dim + j] + p[j*dim + i] ) / ( 2. * nData );
             pSym[ mapIndicesUpperTriang( i, j, nData ) ] = ( p[i*nData + j] + p[j*nData + i] ) / ( 2. * nData );
-        //
-        //     if ( pSym[ mapIndicesUpperTriang(i,j,nData) ] == 0 )
-        //         std::cout << "Bad p: " << p[i*nData+j] << ' ' << p[j*nData+i] << ' ' << i << ' ' << j << '\n';
-        //
-        // }
+    }
+    // Early exaggeration on the values of p
+    for ( int i = 0; i < (int)( nData * (nData - 1.) / 2. ); ++i)
+        pSym[i] *= 4.; 
+
+    double sump = 0.;
+    for ( int i = 0; i < nData; ++i )
+    {
+        for ( int j = 0; j < nData; ++j )
+        {
+            if ( i != j )
+                sump += pSym[ mapIndicesUpperTriangSym( i, j, nData ) ];
+        }
     }
     // Delete the array p now, since it won't be needed anymore.
-    // delete[] p;
+    delete[] p;
 
     // Initialize the projection variables U_i to random values in the range [-1, 1]
     double* U = new double [ nData * dimReduced ];
     for (int i = 0; i < nData*dimReduced; ++i)
         U[i] = 2. * std::rand() / (double)RAND_MAX - 1.;
 
-    for ( int i = 0; i < nData; ++i )
-    {
-        for ( int j = 0; j < nData; ++j )
-        {
-            if ( i != j )
-                std::cout << p[ i*dim + j ] << '\n';
-        }
-    }
-
     // Initialize the variable for the distances between the U_i
     double* distSqU = new double [ (int)( nData * (nData - 1.) / 2. ) ];
-    // computeDistSqU( U, nData, dimReduced, distSqU );
 
     // Initialize the similar probability distribution q_{ij} with the values of 
     // U_i above.
@@ -369,12 +341,14 @@ void computetSNE( const double* data, const int nData, const int dim,
 
     // Vector for the velocities of the variables U_i, used in gradient descent
     double* velU = new double [ nData * dimReduced ];
+    // Initialize these to zero
+    for ( int i = 0; i < nData * dimReduced; ++i )
+        velU[ i ] = 0.;
 
     // Vector to store the gradient computed for each point in each iteration
     double* gradient = new double [ dimReduced ];
 
-    std::cout << "Looping...\n";
-
+    std::cout << "Minimizing the cost function for t-SNE...\n";
     // Perform gradient descent until a threshold condition is met
     int iteration = 0;
     do
@@ -387,9 +361,6 @@ void computetSNE( const double* data, const int nData, const int dim,
         previousCost = cost;
         // Compute the cost function
         cost = computeCosttSNE( pSym, q, nData );
-        //
-        // for ( int i = 0; i < (int)( nData * (nData - 1.) / 2. ); ++i )
-        //     std::cout << q[i] << ' ' << pSym[i] << " --- ";
 
         // Iterate through the different points U_i
         for ( int i = 0; i < nData; ++i )
@@ -403,24 +374,35 @@ void computetSNE( const double* data, const int nData, const int dim,
             {
                 // Update the velocity, with the contribution of the previous value
                 // (momentum) and the gradient
-                velU[ i*dim + k ] = gdMomentum * velU[ i*dim + k ] + gdRate * gradient[ k ];
-                // Move along the new velocity
-                U[ i*dim + k ] -= velU[ i*dim + k ];
+                velU[ i*dimReduced + k ] = gdMomentum * velU[ i*dimReduced + k ] + gdRate * gradient[ k ];
             }
         }
 
-        std::cout << "Iteration " << iteration << ", cost function: " << cost << ". Previous value of the cost function: " << previousCost << '\n';
+        // Move U along the new velocity
+        for ( int i = 0; i < nData * dimReduced; ++i )
+            U[ i ] -= velU[ i ];
+
+        if ( iteration % itersForPrint == 0 )
+        {
+            std::cout << "Iteration " << iteration <<  " of " << maxIterations 
+                      <<  ", cost function: " << cost 
+                      << ". Previous value of the cost function: " << previousCost << '\n';
+            if ( iteration == itersForEndExaggeration )
+            {
+                // Revert early exageration on the values of the matrix p
+                for ( int i = 0; i < (int)( nData * (nData - 1.) / 2. ); ++i)
+                    pSym[i] /= 4.; 
+            }
+        }
     }
-    // while ( std::fabs( cost - previousCost ) > gdTolerance && iteration++ < 100 );
-    while ( std::fabs( cost - previousCost ) > gdTolerance && iteration++ < 10 );
+    while ( std::fabs( cost - previousCost ) > gdTolerance && iteration++ < maxIterations );
 
     // Save the reduced data in the output variable
-    // for ( int i = 0; i < nData * dimReduced; ++i )
-    for ( int i = 0; i < 10; ++i )
+    for ( int i = 0; i < nData * dimReduced; ++i )
         reducedData[i] = U[i];
 
     // Delete the previously defined arrays
-    delete[] p;
+    // delete[] p;
     delete[] pSym;
     delete[] U;
     delete[] distSqU;
