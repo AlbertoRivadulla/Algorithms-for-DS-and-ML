@@ -20,10 +20,22 @@ extern "C"
     //      dim: the number of features
     //      reducedData: dataset with a reduced number of features
     //      dimReduced: the number of features after the reduction
-    // void computePCA( const double* data, const int nData, const int dim, 
-    //                  double* reducedData, const int dimReduced=2 );
     double* computePCA( const double* data, const int nData, const int dim, 
                         double* reducedData, const int dimReduced=2 );
+
+// t-SNE (t-stochastic neighbor embedding)
+//      data: the dataset
+//      nData: the number of points
+//      dim: the number of features
+//      reducedData: dataset with a reduced number of features
+//      dimReduced: the number of features after the reduction
+//      perplexity: the perplexity parameter
+//      gdRate: the rate parameter for gradient descent
+//      gdMomentum: the momentum parameter for gradient descent
+void computetSNE( const double* data, const int nData, const int dim, 
+                  double* reducedData, const int dimReduced,
+                  const double perplexity, const double gdRate,
+                  const double gdMomentum );
 
 
     //--------------------------------------------------------------

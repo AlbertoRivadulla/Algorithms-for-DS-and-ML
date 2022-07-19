@@ -344,4 +344,10 @@ void computeEigenQR( const double* matrix, const int& n, std::vector<double>& ei
         // Compute the eigenvalue from this
         eigenVals[i] = normVector( multiplySqMatrixVector( matrix, eigenVectors[i], n ) );
     }
+    delete[] QProduct;
+    delete[] QProductCopy;
+    delete[] identity;
+    delete[] X;
+    delete[] Q;
+    delete[] R;
 }

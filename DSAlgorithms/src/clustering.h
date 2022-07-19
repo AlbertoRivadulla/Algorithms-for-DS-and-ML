@@ -5,8 +5,6 @@
 #include <random>
 #include <ctime>
 #include <limits>
-// #include <iterator>
-// #include <set>
 #include <queue>
 
 #include "linalg.h"
@@ -41,10 +39,6 @@ void expectationStep( const double* data, const int nData, const int dim,
 
 //------------------------------------------------------------------------------
 // Agglomerative clustering
-
-// Map the indices (i, j) of a square matrix to indices of an array that represents
-// sequentially the elements of the upper triangle of the original one
-inline int mapIndices( const int& i, const int& j, const int& n );
 
 // Compute the distances between pairs of clusters using Ward linkage
 void computeWardClusterDistances( const double* means, const int* nPointsClusters, 

@@ -38,5 +38,3 @@ std::vector<int> indicesOfLargestVals( std::vector<double> vec, int nIndices )
 
     return indicesLargest;
 }
-
-

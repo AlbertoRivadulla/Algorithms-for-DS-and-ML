@@ -164,13 +164,6 @@ void computeKMeansClusters( const double* data, const int nData, const int dim,
 //------------------------------------------------------------------------------
 // Agglomerative clustering
 
-// Map the indices (i, j) of a square matrix to indices of an array that represents
-// sequentially the elements of the upper triangle of the original one
-inline int mapIndices( const int& i, const int& j, const int& n )
-{
-    return j - 1 - (i*i + 3*i) / 2 + i*n;
-}
-
 // Compute the distances between pairs of clusters using Ward linkage
 void computeWardClusterDistances( const double* means, const int* nPointsClusters, 
                                   const int dim, double* distances, 
@@ -194,12 +187,12 @@ void computeWardClusterDistances( const double* means, const int* nPointsCluster
                 // Store the value in the matrix of distances
                 // The expression in the index maps (i,j) to sequential indices of
                 // the upper half diagonal
-                distances[ mapIndices( i, j, nPoints ) ] = distSqMeans * nPointsClusters[i] * 
+                distances[ mapIndicesUpperTriang( i, j, nPoints ) ] = distSqMeans * nPointsClusters[i] * 
                                                            nPointsClusters[j] / (nPointsClusters[i] + nPointsClusters[j]);
             }
             else
             {
-                distances[ mapIndices( i, j, nPoints ) ] = 0.;
+                distances[ mapIndicesUpperTriang( i, j, nPoints ) ] = 0.;
             }
         }
     }
@@ -252,9 +245,9 @@ void computeAgglomerativeClusters( const double* data, const int nData,
         {
             for (int j = i+1; j < nData; ++j)
             {
-                if ( distances[ mapIndices( i, j, nData ) ] < minDistSq && nPointsClusters[i] != 0 && nPointsClusters[j] != 0 )
+                if ( distances[ mapIndicesUpperTriang( i, j, nData ) ] < minDistSq && nPointsClusters[i] != 0 && nPointsClusters[j] != 0 )
                 {
-                    minDistSq = distances[ mapIndices( i, j, nData ) ];
+                    minDistSq = distances[ mapIndicesUpperTriang( i, j, nData ) ];
                     iMin1 = i;
                     iMin2 = j;
                 }
