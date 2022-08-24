@@ -107,6 +107,8 @@ void expectationStep( const double* data, const int nData, const int dim,
         for (int j = 0; j < dim; ++j)
             means[ k*dim + j ] /= (float)counters[ k ];
     }
+
+    delete[] counters;
 }
 
 // K-means clustering
@@ -123,10 +125,6 @@ void computeKMeansClusters( const double* data, const int nData, const int dim,
     // Setup the random seed
     std::srand( time(0) );
 
-    // // Vector of cluster means
-    // double* means = new double [ K * dim ];
-    // // Vector of cluster assignments
-    // int* assignments = new int [ nData ];
     // Initialize the cost (objective) function
     double cost = 0.;
     double previousCost = 0.;
@@ -327,6 +325,10 @@ void computeAgglomerativeClusters( const double* data, const int nData,
     }
 
     std::cout << "Data classified in " << nClusters << " clusters, found after " << iterations << " iterations.\n";
+
+    delete[] clusterMeans;
+    delete[] nPointsClusters;
+    delete[] distances;
 }
 
 

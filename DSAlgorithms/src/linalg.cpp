@@ -181,11 +181,15 @@ void computeQRDecomposition( const T* A, T* Q, T* R, const int& n )
     // Initialize the matrix U
     T* U = new T[ n*n ];
 
+    // Vectors ak and uj for inside the loops
+    T* ak = new T [ n ];
+    T* uj = new T [ n ];
+
     // Compute the components of the matrices U and Q
     for (int k = 0; k < n; ++k)
     {
         // Compute the vector a_k
-        T* ak = new T[ n ];
+        // T* ak = new T[ n ];
         for (int i = 0; i < n; ++i)
             ak[i] = A[i*n + k];
         // Compute the elements U_{ik} (or the elements of the vector u_k)
@@ -198,7 +202,7 @@ void computeQRDecomposition( const T* A, T* Q, T* R, const int& n )
                 for (int j = 0; j < k; ++j)
                 {
                     // Compute the vector u_j
-                    T* uj = new T[ n ];
+                    // T* uj = new T[ n ];
                     for (int l = 0; l < n; ++l)
                         uj[l] = U[ l*n + j ];
                     // Add to this component of the matrix U
@@ -232,6 +236,10 @@ void computeQRDecomposition( const T* A, T* Q, T* R, const int& n )
                 R[ i*n + j ] += Q[ k*n + i ] * A[ k*n + j ];
         }
     }
+
+    delete[] U;
+    delete[] ak;
+    delete[] uj;
 }
 
 //=============================================================================

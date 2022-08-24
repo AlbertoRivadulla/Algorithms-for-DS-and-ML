@@ -16,6 +16,7 @@
 ################################################################################
 
 cmake_minimum_required(VERSION 3.15)
+set(CMAKE_CXX_STANDARD 17)
 
 # Obtain a file compile_commands.json used by ccls (through the plugin coc.nvim)
 # to provide code completion in Neovim

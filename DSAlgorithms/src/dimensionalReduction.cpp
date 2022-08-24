@@ -62,6 +62,10 @@ double* computePCA( const double* data, const int nData, const int dim,
             mostSignificantEigenvectors[ j + i*dim ] = eigenVectors[indicesLargestEigen[i]][j];
     }
 
+    delete[] dataNorm;
+    delete[] means;
+    delete[] corrMatrix;
+
     return mostSignificantEigenvectors;
 }
 

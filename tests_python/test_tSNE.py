@@ -5,7 +5,8 @@ import matplotlib.pyplot as plt
 
 def tSNE_in_Cpp( dataIn, dimReduced, perpl, gdRate, gdMomentum ):
     # Load the library
-    lib = ctypes.cdll.LoadLibrary( "../DSAlgorithms/build/libDSAlgorithms.so" )
+    # lib = ctypes.cdll.LoadLibrary( "../DSAlgorithms/build/libDSAlgorithms.so" )
+    lib = ctypes.cdll.LoadLibrary( "../DSAlgorithms/build/libDSAlgorithms.dylib" )
     # Array for the output of the computation in C++
     reducedDataOut = np.zeros( (len(dataIn), dimReduced), dtype=np.double )
     # Make sure that both arrays are contiguous, and that their data type is correct

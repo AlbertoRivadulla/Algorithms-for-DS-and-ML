@@ -74,4 +74,6 @@ void normalizeDataset( const double* data, const int& nData, const int& dim,
             normDataset[i*dim + j] = ( data[i*dim + j] - means[j] ) / stdDevs[j];
         }
     }
+
+    delete[] stdDevs;
 }

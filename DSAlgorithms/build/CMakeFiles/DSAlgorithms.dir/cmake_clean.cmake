@@ -9,9 +9,9 @@ file(REMOVE_RECURSE
   "CMakeFiles/DSAlgorithms.dir/src/dimensionalReduction.cpp.o.d"
   "CMakeFiles/DSAlgorithms.dir/src/linalg.cpp.o"
   "CMakeFiles/DSAlgorithms.dir/src/linalg.cpp.o.d"
+  "libDSAlgorithms.1.0.1.dylib"
+  "libDSAlgorithms.dylib"
   "libDSAlgorithms.pdb"
-  "libDSAlgorithms.so"
-  "libDSAlgorithms.so.1.0.1"
 )
 
 # Per-language clean rules from dependency scanning.
